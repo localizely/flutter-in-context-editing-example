@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_gen/gen_l10n/localizely_localizations.dart';
+import 'package:localizely_sdk/localizely_sdk.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const LocalizelyInContextEditing(
+      enabled: true, // set to false to disable In-Context Editing
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -10,11 +18,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Smart investment',
       theme: ThemeData(
         primarySwatch: Colors.teal,
       ),
+      localizationsDelegates: LocalizelyLocalizations.localizationsDelegates,
+      supportedLocales: LocalizelyLocalizations.supportedLocales,
       debugShowCheckedModeBanner: false,
+      onGenerateTitle: (context) => AppLocalizations.of(context)!.appTitle,
       home: const HomePage(),
     );
   }
@@ -27,7 +37,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Smart investment'),
+        title: Text(AppLocalizations.of(context)!.pageHomeTitle),
       ),
       body: Center(
         child: Container(
@@ -66,16 +76,16 @@ class HomePage extends StatelessWidget {
                   ),
                   onPressed: () {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
+                      SnackBar(
                         content: Text(
-                          "Not yet implemented!",
+                          AppLocalizations.of(context)!.commonNotYetImplemented,
                           textAlign: TextAlign.center,
                         ),
                       ),
                     );
                   },
-                  child: const Text(
-                    'Start',
+                  child: Text(
+                    AppLocalizations.of(context)!.pageHomeButtonStart,
                     textAlign: TextAlign.center,
                   ),
                 ),
