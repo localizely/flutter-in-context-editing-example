@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:localizely_sdk/localizely_sdk.dart';
+
+import 'generated/l10n.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const LocalizelyInContextEditing(
+      enabled: true, // set to false to disable In-Context Editing
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -10,11 +19,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Smart investment',
       theme: ThemeData(
         primarySwatch: Colors.teal,
       ),
+      localizationsDelegates: const [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: S.delegate.supportedLocales,
       debugShowCheckedModeBanner: false,
+      onGenerateTitle: (context) => S.of(context).appTitle,
       home: const HomePage(),
     );
   }
@@ -27,7 +43,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Smart investment'),
+        title: Text(S.of(context).pageHomeTitle),
       ),
       body: Center(
         child: Container(
@@ -66,16 +82,16 @@ class HomePage extends StatelessWidget {
                   ),
                   onPressed: () {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
+                      SnackBar(
                         content: Text(
-                          "Not yet implemented!",
+                          S.of(context).commonNotYetImplemented,
                           textAlign: TextAlign.center,
                         ),
                       ),
                     );
                   },
-                  child: const Text(
-                    'Start',
+                  child: Text(
+                    S.of(context).pageHomeButtonStart,
                     textAlign: TextAlign.center,
                   ),
                 ),
