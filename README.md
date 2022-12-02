@@ -10,7 +10,7 @@ Instantly see how your translations fit on a real device without unnecessary app
 - Run `flutter pub get` command
 - Create a new project on the [Localizely](https://localizely.com) platform and upload ARB files from the `lib\l10n` folder
 - Run the app on a real device
-- Connect with Localizely by scanning the QR code (for web &amp; desktop apps paste token)
+- Connect with Localizely by entering the token
 - Translate messages on Localizely and check while you type how they fit on a device
 
 ## Useful links:
