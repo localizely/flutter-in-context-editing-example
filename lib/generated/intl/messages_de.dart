@@ -22,11 +22,11 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "appTitle": MessageLookupByLibrary.simpleMessage("Smarte Investition"),
-        "commonNotYetImplemented":
-            MessageLookupByLibrary.simpleMessage("Noch nicht implementiert!"),
-        "pageHomeButtonStart": MessageLookupByLibrary.simpleMessage("Starten"),
-        "pageHomeTitle":
-            MessageLookupByLibrary.simpleMessage("Smarte Investition")
-      };
+    "appTitle": MessageLookupByLibrary.simpleMessage("Smarte Investition"),
+    "commonNotYetImplemented": MessageLookupByLibrary.simpleMessage(
+      "Noch nicht implementiert!",
+    ),
+    "pageHomeButtonStart": MessageLookupByLibrary.simpleMessage("Starten"),
+    "pageHomeTitle": MessageLookupByLibrary.simpleMessage("Smarte Investition"),
+  };
 }

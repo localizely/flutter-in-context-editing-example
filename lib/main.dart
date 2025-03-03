@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.teal,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
       ),
       localizationsDelegates: const [
         S.delegate,
@@ -42,16 +42,11 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(S.of(context).pageHomeTitle),
-      ),
+      appBar: AppBar(title: Text(S.of(context).pageHomeTitle)),
       body: Center(
         child: Container(
           width: 300,
-          margin: const EdgeInsets.symmetric(
-            vertical: 16,
-            horizontal: 24,
-          ),
+          margin: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -60,9 +55,7 @@ class HomePage extends StatelessWidget {
                   vertical: 24,
                   horizontal: 36,
                 ),
-                child: const Image(
-                  image: AssetImage('assets/images/logo.png'),
-                ),
+                child: const Image(image: AssetImage('assets/images/logo.png')),
               ),
               Container(
                 margin: const EdgeInsets.symmetric(
