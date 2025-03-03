@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_gen/gen_l10n/localizely_localizations.dart';
 import 'package:localizely_sdk/localizely_sdk.dart';
+
+import 'l10n/generated/app_localizations.dart';
+import 'l10n/generated/localizely_localizations.dart';
 
 void main() {
   runApp(
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.teal,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
       ),
       localizationsDelegates: LocalizelyLocalizations.localizationsDelegates,
       supportedLocales: LocalizelyLocalizations.supportedLocales,
@@ -36,16 +37,11 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.pageHomeTitle),
-      ),
+      appBar: AppBar(title: Text(AppLocalizations.of(context)!.pageHomeTitle)),
       body: Center(
         child: Container(
           width: 300,
-          margin: const EdgeInsets.symmetric(
-            vertical: 16,
-            horizontal: 24,
-          ),
+          margin: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -54,9 +50,7 @@ class HomePage extends StatelessWidget {
                   vertical: 24,
                   horizontal: 36,
                 ),
-                child: const Image(
-                  image: AssetImage('assets/images/logo.png'),
-                ),
+                child: const Image(image: AssetImage('assets/images/logo.png')),
               ),
               Container(
                 margin: const EdgeInsets.symmetric(
